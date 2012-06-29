@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/logistics">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="admin"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>cn/logistics/pojo/TCarschedule.hbm.xml</value>
+				<value>cn/logistics/pojo/TJointable.hbm.xml</value>
+				<value>cn/logistics/pojo/TOrderstatus.hbm.xml</value>
+				<value>cn/logistics/pojo/THeadaccount.hbm.xml</value>
+				<value>cn/logistics/pojo/TJointabledistritable.hbm.xml</value>
+				<value>cn/logistics/pojo/TRole.hbm.xml</value>
+				<value>cn/logistics/pojo/TOrderjointable.hbm.xml</value>
+				<value>cn/logistics/pojo/TUser.hbm.xml</value>
+				<value>cn/logistics/pojo/TRoute.hbm.xml</value>
+				<value>cn/logistics/pojo/TStaff.hbm.xml</value>
+				<value>cn/logistics/pojo/TDpaccount.hbm.xml</value>
+				<value>cn/logistics/pojo/TRoutediatrpoint.hbm.xml</value>
+				<value>cn/logistics/pojo/TOrder.hbm.xml</value>
+				<value>cn/logistics/pojo/TDistrpoint.hbm.xml</value>
+				<value>cn/logistics/pojo/TVehicle.hbm.xml</value></list>
+		</property></bean>
+	<bean id="TCarscheduleDAO"
+		class="cn.logistics.dao.impl.TCarscheduleDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TJointableDAO" class="cn.logistics.dao.impl.TJointableDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TOrderstatusDAO"
+		class="cn.logistics.dao.impl.TOrderstatusDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="THeadaccountDAO"
+		class="cn.logistics.dao.impl.THeadaccountDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TJointabledistritableDAO"
+		class="cn.logistics.dao.impl.TJointabledistritableDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TRoleDAO" class="cn.logistics.dao.impl.TRoleDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TOrderjointableDAO"
+		class="cn.logistics.dao.impl.TOrderjointableDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TUserDAO" class="cn.logistics.dao.impl.TUserDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TRouteDAO" class="cn.logistics.dao.impl.TRouteDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TStaffDAO" class="cn.logistics.dao.impl.TStaffDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TDpaccountDAO" class="cn.logistics.dao.impl.TDpaccountDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TRoutediatrpointDAO"
+		class="cn.logistics.dao.impl.TRoutediatrpointDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TOrderDAO" class="cn.logistics.dao.impl.TOrderDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TDistrpointDAO"
+		class="cn.logistics.dao.impl.TDistrpointDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TVehicleDAO" class="cn.logistics.dao.impl.TVehicleDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	</beans>
